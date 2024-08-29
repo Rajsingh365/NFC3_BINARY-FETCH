@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedRoute from './components/Protectedroute.jsx';
 import Signup from "./pages/Signup";
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard";
