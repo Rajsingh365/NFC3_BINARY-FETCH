@@ -1,14 +1,36 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomeLayout } from "./pages/HomeLayout";
+import Landing from "./pages/Landing";
+import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Freefire from "./pages/Dashboard/Freefire";
+
 import MatchMaking from './pages/MatchMaking'
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />
+      },
+      {
+        path: "/signup",
+        element: <Signup />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
       // {
       //   index: true,
       //   element: <Landing />,
@@ -20,11 +42,13 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+        children:[
+          {
+            path: "free-fire",
+            element: <Freefire />,
+          }
+        ]
       },
-      // {
-      //   path: "/plan",
-      //   element: <TravelForm />,
-      // },
       // {
       //   path: "/about",
       //   element: <AboutUs />,

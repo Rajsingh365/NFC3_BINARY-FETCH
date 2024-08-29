@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import ff from "./../assets/gamesLogoImg/ff.png";
 import coc from "./../assets/gamesLogoImg/coc.png";
 import pubg from "./../assets/gamesLogoImg/pubg.png";
-import { Link } from "react-router-dom";
-import FFCards from "./cards/FFCards";
 import FFCardList from "./cards/FFCardList";
+import axios from "axios";
 
 const MatchMakingSideBar = () => {
   const games = ["FREEFIRE", "PUBG", "COC"];
 
   const [currentItem, setCurrentItem] = useState("all");
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    try {
+      axios
+        .get("http://localhost:5000/api/games/ff")
+        .then((res) => { 
+          console.log(res.data);
+        });
+      
+    } catch (error) {
+      console.log(err)
+    }
+  }, []);
 
   return (
     <div className="w-full">
@@ -33,17 +45,18 @@ const MatchMakingSideBar = () => {
             </div>
           </div>
           <ul className="mt-2 font-medium text-white">
-            <li onClick={()=>setCurrentItem("all")}
+            <li
+              onClick={() => setCurrentItem("all")}
               className={`${
                 currentItem === "all"
                   ? " bg-red-400 hover:bg-red-500 text-white"
                   : "hover:bg-gray-800"
               } flex p-2 mt-1 gap-3`}
             >
-              
               <p className="text-xl">All</p>
             </li>
-            <li onClick={()=>setCurrentItem("ff")}
+            <li
+              onClick={() => setCurrentItem("ff")}
               className={`${
                 currentItem === "ff"
                   ? " bg-red-400 hover:bg-red-500 text-white"
@@ -59,7 +72,8 @@ const MatchMakingSideBar = () => {
               </div>
               <p className="text-xl">Free Fire</p>
             </li>
-            <li onClick={()=>setCurrentItem("pubg")}
+            <li
+              onClick={() => setCurrentItem("pubg")}
               className={`${
                 currentItem === "pubg"
                   ? " bg-red-400 hover:bg-red-500 text-white"
@@ -75,7 +89,8 @@ const MatchMakingSideBar = () => {
               </div>
               <p className="text-xl">PUBG</p>
             </li>
-            <li onClick={()=>setCurrentItem("coc")}
+            <li
+              onClick={() => setCurrentItem("coc")}
               className={`${
                 currentItem === "coc"
                   ? " bg-red-400 hover:bg-red-500 text-white"
@@ -95,12 +110,16 @@ const MatchMakingSideBar = () => {
         </div>
       </aside>
 
-
-
       <div className="mt-2 ml-[20rem] w-[76%]">
-        {
-         currentItem=='ff'?<FFCardList/>:currentItem=='pubg'?<FFCardList/>:currentItem=='coc'?<FFCardList/>:<FFCardList/>
-        }
+        {currentItem == "ff" ? (
+          <FFCardList />
+        ) : currentItem == "pubg" ? (
+          <FFCardList />
+        ) : currentItem == "coc" ? (
+          <FFCardList />
+        ) : (
+          <FFCardList />
+        )}
       </div>
     </div>
   );
