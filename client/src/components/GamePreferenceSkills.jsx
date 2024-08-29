@@ -31,7 +31,7 @@ function GamePreferenceSkills() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-lg text-white mb-2">Game Rating (100-1000):</label>
+          <label className="block text-lg text-white mb-2">Game Rating:</label>
           <input
             type="number"
             value={gameRating}

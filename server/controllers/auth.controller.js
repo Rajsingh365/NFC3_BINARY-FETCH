@@ -62,6 +62,7 @@ export const logIn = async (req, res) => {
       _id: user._id,
       fullName: user.fullName,
       username: user.username,
+      description: user.description,
       token
     });
 
