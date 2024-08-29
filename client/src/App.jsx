@@ -3,6 +3,7 @@ import { HomeLayout } from "./pages/HomeLayout";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Freefire from "./pages/Dashboard/Freefire";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,12 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+        children:[
+          {
+            path: "free-fire",
+            element: <Freefire />,
+          }
+        ]
       },
       // {
       //   path: "/plan",
