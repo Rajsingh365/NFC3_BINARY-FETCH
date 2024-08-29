@@ -4,9 +4,9 @@ import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
-import ProtectedRoute from './components/Protectedroute.jsx';
+import ProtectedRoute from "./components/Protectedroute.jsx";
 import Signup from "./pages/Signup";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
@@ -19,20 +19,29 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "/profile",
-        element: <Profile />
-      },
-      {
         path: "/signup",
-        element: <Signup />
+        element: <Signup />,
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
       },
       // {
       //   path: "/plan",
@@ -65,10 +74,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <AuthContextProvider>
-      <RouterProvider router={router} />
-      <Toaster />
-    </AuthContextProvider>
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+        <Toaster />
+      </AuthContextProvider>
     </>
   );
 }
