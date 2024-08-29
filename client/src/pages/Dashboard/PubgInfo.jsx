@@ -5,7 +5,6 @@ import {
   MdOutlineSupervisedUserCircle,
   MdSupervisorAccount,
 } from "react-icons/md";
-import { FaLevelUpAlt } from "react-icons/fa";
 import { GiDeathSkull } from "react-icons/gi";
 import { CgGames } from "react-icons/cg";
 import { delay, easeIn, easeInOut, motion, transform } from "framer-motion";
@@ -42,7 +41,8 @@ const variants = {
   },
 };
 
-const FreeFireInfo = ({data}) => {
+
+const PubgInfo = ({data}) => {
   console.log(data);
   const dataPubg = {
     labels: data.kills_per_match.map((kill, index) => "Match " + (index + 1)),
@@ -66,7 +66,7 @@ const FreeFireInfo = ({data}) => {
 
       className="bg-[#21222D] py-10 rounded-lg mx-5 w-[70rem] h-auto "
     >
-      <h2 className="text-3xl font-semibold ml-10 pb-5">FreeFire Analytics</h2>
+      <h2 className="text-3xl font-semibold ml-10 pb-5">Pubg Analytics</h2>
       <motion.div className=" gap-x-5 flex items-center justify-center p-5 text-3xl text-center ">
         <motion.div
           variants={variants}
@@ -92,10 +92,10 @@ const FreeFireInfo = ({data}) => {
         className="flex flex-col gap-y-3 bg-[#171821] rounded-lg justify-center items-center w-72 p-2">
           <div className="stat place-items-center">
           <div className="stat-figure text-secondary">
-              <FaLevelUpAlt className="text-green-500 text-4xl" />
+              <CgGames className="text-green-500 text-4xl" />
             </div>
-            <div className="stat-title">Level</div>
-            <div className="stat-value text-green-500">{data.level}</div>
+            <div className="stat-title">Match Played</div>
+            <div className="stat-value text-green-500">{data.matches_played}</div>
           </div>
         </motion.div>
 
@@ -121,8 +121,8 @@ const FreeFireInfo = ({data}) => {
                 ></path>
               </svg>
             </div>
-            <div className="stat-title">Rank</div>
-            <div className="stat-value text-secondary">{data.rank}</div>
+            <div className="stat-title">Tier</div>
+            <div className="stat-value text-secondary">{data.tier}</div>
           </div>
         </motion.div>
         
@@ -145,9 +145,7 @@ const FreeFireInfo = ({data}) => {
   )
 }
 
-export default FreeFireInfo;
-
-
+export default PubgInfo
 
 
 

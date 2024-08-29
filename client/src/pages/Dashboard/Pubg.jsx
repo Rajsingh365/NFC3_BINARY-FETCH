@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import FreeFireInfo from './FreeFireInfo';
-
-const Freefire = () => {
-  const playerId = "2001234567";
+import PubgInfo from './PubgInfo';
+function Pubg() {
+  const playerId = "1028901234";
   const [data, setData] = useState({
     "player_id": 1028901234,
     "player_name": "SonamThakur",
@@ -28,9 +27,9 @@ const Freefire = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/games/ff/${playerId}`);
+        const res = await axios.get(`http://localhost:5000/api/games/pubg/${playerId}`);
         const data = res.data;
-        console.log('data', data);  
+        // console.log('data', data);  
         setData(data);
       } catch (error) {
         toast.error(error.message);
@@ -42,13 +41,15 @@ const Freefire = () => {
 
   return (
     <div className='text-white border w-auto'>
-      <FreeFireInfo data={data}/>
-      hello
+      <PubgInfo data={data}/>
     </div>
   );
 };
 
 
-export default Freefire;
+
+export default Pubg
+
+
 
 

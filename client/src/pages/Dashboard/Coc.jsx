@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import useGetFreeFireInfo from '../../hooks/useFreeFire.js';
-import FreeFireInfo from './FreeFireInfo.jsx';
+import CocInfo from './CocInfo.jsx';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 import { set } from 'mongoose';
 const Coc = () => {
-  const playerId = "1048804278";
-  const { loading, getFreeFireInfo, freeFireInfo } = useGetFreeFireInfo();
-  const [maxRate, setMaxRate] = useState(0);
-  const [equippedSkills, setEquippedSkills] = useState([]);
+  const playerId = "1001";
+  const [data, setData] = useState({playerName: '', trophyHistory: []});
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getFreeFireInfo(playerId);
-      setMaxRate(data.basicInfo.maxRank);
-      setEquippedSkills(data.profileInfo.equipedSkills);
+      try {
+        const res = await axios.get(`http://localhost:5000/api/games/coc/${playerId}`);
+        const data = res.data;
+        console.log('data', data);  
+        setData(data);
+      } catch (error) {
+        toast.error(error.message);
+      }
     };
+  
     fetchData();
-  }, []);
+  }, [playerId]);
 
   return (
-    <div className='text-white border'>
-      {/* {loading && <p>Loading...</p>} */}
-      {freeFireInfo && (
-        <FreeFireInfo maxRate={maxRate} equippedSkills={equippedSkills}/>
-      )}
+    <div className='text-white border w-auto'>
+      <CocInfo playerName={data.playerName} trophyHistory={data.trophyHistory}/>
     </div>
   );
 };

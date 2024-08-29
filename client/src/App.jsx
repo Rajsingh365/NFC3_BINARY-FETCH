@@ -7,7 +7,6 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Freefire from "./pages/Dashboard/Freefire";
 
 const router = createBrowserRouter([
   {
@@ -33,12 +32,6 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
-        children:[
-          {
-            path: "free-fire",
-            element: <Freefire />,
-          }
-        ]
       },
       // {
       //   path: "/about",

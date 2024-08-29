@@ -35,3 +35,14 @@ export const pubgData=async (req, res) => {
   })
   res.json(userData[0])
 }
+
+export const ffDataUsers=async (req, res) => {
+  try {
+    const coll = await mongoose.connection.db.collection("ff").find({}).toArray();
+    console.log(coll);
+    res.json(coll)
+  } catch (error) {
+    console.log(error)
+    res.json(error)
+  }
+}
