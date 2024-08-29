@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* *{
-  overflow-x: hidden;
-} */
 
 .login-container {
   background-image: url("./assets/images/Login_signup/ghost.jpg");

@@ -6,17 +6,19 @@ function useSignup() {
   const [loading, setLoading] = useState(false);
   const { setAuthUser, setAuthToken } = useAuthContext();
 
-  const signup = async ({ fullName, username, password, confirmPassword, description }) => {
-    const success = handleInputErrors({ fullName, username, password, confirmPassword, description });
+  const signup = async ({ fullName, username, password, confirmPassword, description,gender }) => {
+    
+    const success = handleInputErrors({ fullName, username, password, confirmPassword, description,gender });
 
     if (!success) return false;
     setLoading(true);
 
     try {
+      console.log(gender);
       const res = await fetch("http://localhost:5000/api/auth/signup", {
         method: "Post",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, username, password, confirmPassword, description }),
+        body: JSON.stringify({ fullName, username, password, confirmPassword, description,gender }),
       });
       const data = await res.json();
       if (data.error) {
@@ -41,8 +43,8 @@ function useSignup() {
 
 export default useSignup;
 
-function handleInputErrors({ fullName, username, password, confirmPassword, description }) {
-  if (!fullName || !username || !password || !confirmPassword || !description) {
+function handleInputErrors({ fullName, username, password, confirmPassword, description,gender }) {
+  if (!fullName || !username || !password || !confirmPassword || !description || !gender) {
     toast.error("Please fill in all the fields");
     return false;
   }

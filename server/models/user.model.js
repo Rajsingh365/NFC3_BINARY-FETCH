@@ -18,12 +18,28 @@ const userSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
-    additionalinfo: {
-      type: Object,
-      default: {}
-    }
+    profilePic: {
+      type: String,
+      default: "",
+    },
+    gender: {
+      type: String,
+      required: true,
+      enum: ["male", "female"],
+    },
+    coverImg: {
+      type: String,
+      default: "",
+    },
+    gameInfo: [
+      {
+        gameName: { type: String, required: true },
+        gameId: { type: String, required: true },
+        gameExpertise: { type: String, default: 0 },
+      },
+    ],
   },
   { timestamps: true }
 );
