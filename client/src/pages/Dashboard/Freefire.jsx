@@ -30,7 +30,7 @@ const Freefire = () => {
       try {
         const res = await axios.get(`http://localhost:5000/api/games/ff/${playerId}`);
         const data = res.data;
-        console.log('data', data);  
+        // console.log('data', data);  
         setData(data);
       } catch (error) {
         toast.error(error.message);

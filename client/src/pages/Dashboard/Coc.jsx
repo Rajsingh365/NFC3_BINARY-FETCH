@@ -11,7 +11,7 @@ const Coc = () => {
       try {
         const res = await axios.get(`http://localhost:5000/api/games/coc/${playerId}`);
         const data = res.data;
-        console.log('data', data);  
+        // console.log('data', data);  
         setData(data);
       } catch (error) {
         toast.error(error.message);
