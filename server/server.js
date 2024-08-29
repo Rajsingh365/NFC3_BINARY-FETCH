@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDb from "./db/db_connect.js";
 
 import authRoutes from "./routes/auth.route.js"
+import uploadRoutes from "./routes/upload.route.js"
 
 
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cors());
 
 app.use("/api/auth",authRoutes);
+app.use("/api/uploads",uploadRoutes);
 
 
 app.get("/",(req,res)=>{

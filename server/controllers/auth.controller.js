@@ -34,6 +34,8 @@ export const signUp = async (req, res) => {
         fullName: newUser.fullName,
         username: newUser.username,
         description,
+        coverImg,
+        profilePic,
         token
       });
     } else {
@@ -63,6 +65,8 @@ export const logIn = async (req, res) => {
       fullName: user.fullName,
       username: user.username,
       description: user.description,
+      coverImg: user.coverImg,
+      profilePic: user.profilePic,
       token
     });
 
