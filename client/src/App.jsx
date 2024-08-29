@@ -7,9 +7,10 @@ import { AuthContextProvider } from "./context/AuthContext";
 import { SocketContextProvider } from './context/SocketContext.jsx';
 import ProtectedRoute from "./components/Protectedroute.jsx";
 import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login"
+import Dashboard from "./pages/Dashboard/Dashboard";
 import CommunityChat from "./pages/CommunityChat.jsx";
+import MatchMaking from './pages/MatchMaking'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      // {
+      //   index: true,
+      //   element: <Landing />,
+      // },
+      {
+        path:'/matchmaking',
+        element:<MatchMaking/>
+      },
       {
         path: "/profile",
         element: (
@@ -35,6 +44,14 @@ const router = createBrowserRouter([
             <Profile />
           </ProtectedRoute>
         ),
+      },
+      // {
+      //   index: true,
+      //   element: <Landing />,
+      // },
+      {
+        path:'/matchmaking',
+        element:<MatchMaking/>
       },
       {
         path: "/dashboard",
@@ -52,10 +69,6 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      // {
-      //   path: "/plan",
-      //   element: <TravelForm />,
-      // },
       // {
       //   path: "/about",
       //   element: <AboutUs />,
