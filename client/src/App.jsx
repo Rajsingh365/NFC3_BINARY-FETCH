@@ -4,10 +4,12 @@ import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
+import { SocketContextProvider } from './context/SocketContext.jsx';
 import ProtectedRoute from "./components/Protectedroute.jsx";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import CommunityChat from "./pages/CommunityChat.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,12 +36,19 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-
       {
         path: "/dashboard",
         element: (
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/community-chat",
+        element: (
+          <ProtectedRoute>
+            <CommunityChat />
           </ProtectedRoute>
         ),
       },
@@ -75,8 +84,10 @@ function App() {
   return (
     <>
       <AuthContextProvider>
-        <RouterProvider router={router} />
-        <Toaster />
+        <SocketContextProvider>
+          <RouterProvider router={router} />
+          <Toaster />
+        </SocketContextProvider>
       </AuthContextProvider>
     </>
   );
