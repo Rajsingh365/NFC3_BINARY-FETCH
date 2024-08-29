@@ -2,21 +2,20 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomeLayout } from "./pages/HomeLayout";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
-import Dashboard from "./pages/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     children: [
-      // {
-      //   index: true,
-      //   element: <Landing />,
-      // },
       {
-        path: "/dashboard",
-        element: <Dashboard />
+        index: true,
+        element: <Landing />,
       },
+      // {
+      //   path: "/dashboard",
+      //   element: <FindHotels />,
+      // },
       // {
       //   path: "/plan",
       //   element: <TravelForm />,
@@ -46,7 +45,14 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (<RouterProvider router={router}></RouterProvider>);
+  return (
+    <>
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+      <Toaster />
+    </AuthContextProvider>
+    </>
+  );
 }
 
 export default App;
