@@ -2,26 +2,26 @@ import React, { useEffect, useState } from "react";
 import { RiChat3Fill } from "react-icons/ri";
 import { MdCancel } from "react-icons/md";
 import { IoMdSend } from "react-icons/io";
-// import { useAuthContext } from "../context/AuthContext";
+import { useAuthContext } from "../context/AuthContext";
 import Messages from "./Messages";
-import useGetMessages from "../hooks/useMessages";
+import useGetBotMessages from "../hooks/useGetBotMessages.js";
 
 const ChatBot = () => {
   const [showChatBot, setShowChatBot] = useState(false);
   const [message, setMessage] = useState("");
   const [messages, setMessages]=useState([]);
-  // const {authUser}=useAuthContext();
-  const {botreply}=useGetMessages();
-  const authUser={
-    _id: "66d0beedfb2e3692c8e5d1f6"
-  }
+  const {authUser}=useAuthContext();
+  const {botreply}=useGetBotMessages();
   const handleMessage = async (e) => {
     e.preventDefault();
+    // console.log(message);
+    // console.log(authUser._id);
     const newMessage = {
       message,
       senderId: authUser._id,
       receiverId: "66b8ef2ae4516709f725cc79"
     };
+    console.log("raj",newMessage);
     setMessages(prevMessages=>[...prevMessages, newMessage]);
     setMessage("");
     const botReply=await botreply({senderMsg: newMessage.message});
@@ -34,6 +34,7 @@ const ChatBot = () => {
 
     setMessages(prevMessages=>[...prevMessages, botMessage]);
   }
+
   useEffect(() => { 
     const botMessage = {
       message: "Hello! I am a bot. How can I help you?",

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import Message from "./Message";
-import useGetMessages from "../hooks/useMessages";
+import useGetMessages from "../hooks/useGetBotMessages";
 
 const Messages = ({messages,setMessages}) => {
   const { loading } = useGetMessages();

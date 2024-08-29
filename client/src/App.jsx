@@ -4,11 +4,14 @@ import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
+import { SocketContextProvider } from './context/SocketContext.jsx';
+import ProtectedRoute from "./components/Protectedroute.jsx";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard/Dashboard";
-
+import CommunityChat from "./pages/CommunityChat.jsx";
 import MatchMaking from './pages/MatchMaking'
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,16 +22,28 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "/profile",
-        element: <Profile />
-      },
-      {
         path: "/signup",
-        element: <Signup />
+        element: <Signup />,
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
+      },
+      // {
+      //   index: true,
+      //   element: <Landing />,
+      // },
+      {
+        path:'/matchmaking',
+        element:<MatchMaking/>
+      },
+      {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
       },
       // {
       //   index: true,
@@ -40,7 +55,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/community-chat",
+        element: (
+          <ProtectedRoute>
+            <CommunityChat />
+          </ProtectedRoute>
+        ),
       },
       // {
       //   path: "/about",
@@ -69,10 +96,12 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <AuthContextProvider>
-      <RouterProvider router={router} />
-      <Toaster />
-    </AuthContextProvider>
+      <AuthContextProvider>
+        <SocketContextProvider>
+          <RouterProvider router={router} />
+          <Toaster />
+        </SocketContextProvider>
+      </AuthContextProvider>
     </>
   );
 }

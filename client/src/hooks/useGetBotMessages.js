@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-const useGetMessages = () => {
+const useGetBotMessages = () => {
 	const [loading, setLoading] = useState(false);
 
 		const botreply = async ({senderMsg}) => {
+      console.log('raj');
 			setLoading(true);
-
+      console.log('senderMsg',senderMsg);
 			try {
-				const res = await fetch("/api/message/bot-reply", {
+        const res = await fetch("http://localhost:5000/api/message/bot-reply", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -28,4 +29,4 @@ const useGetMessages = () => {
 
 	return { botreply, loading };
 };
-export default useGetMessages;
+export default useGetBotMessages;
