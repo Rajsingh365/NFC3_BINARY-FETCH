@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomeLayout } from "./pages/HomeLayout";
+import Landing from "./pages/Landing";
+import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
 
@@ -12,6 +14,11 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing />,
       },
+      {
+        path: "/profile",
+        element: <Profile />
+      }
+
       // {
       //   path: "/dashboard",
       //   element: <FindHotels />,
