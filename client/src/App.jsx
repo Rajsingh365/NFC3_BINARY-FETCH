@@ -7,6 +7,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard";
+import GameSession from "./pages/GameSession"
 
 const router = createBrowserRouter([
   {
@@ -33,30 +34,10 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard />,
       },
-      // {
-      //   path: "/plan",
-      //   element: <TravelForm />,
-      // },
-      // {
-      //   path: "/about",
-      //   element: <AboutUs />,
-      // },
-      // {
-      //   path: "/contact",
-      //   element: <ContactUs />,
-      // },
-      // {
-      //   path: "/signup",
-      //   element: <SignUp />,
-      // },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // },
-      // {
-      //   path: "/profile",
-      //   element: <Profile />,
-      // }
+      {
+        path: "/game-sessions",
+        element: <GameSession />,
+      },
     ],
   },
 ]);
