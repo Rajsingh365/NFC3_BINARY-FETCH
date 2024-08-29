@@ -1,11 +1,8 @@
 import React from "react";
-import { TempButtons } from "./pages/Supervisor/TempButtons";
-
+import Dashboard from "./pages/Dashboard/Dashboard";
 const App = () => {
   return (
-    <div className="bg-gray-500">
-     hello world
-    </div>
+    <Dashboard/>
   );
 };
 
