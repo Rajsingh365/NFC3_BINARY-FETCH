@@ -7,23 +7,23 @@ const DashboardSidebar = () => {
    const games = [
       {
          name: 'Freefire',
-         link: 'dashboard/free-fire',
+         link: 'free-fire',
       },
       {
          name: 'PUBG',
-         link: 'dashboard/pubg',
+         link: 'pubg',
       },
       {
          name: 'Clash of Clans',
-         link: 'dashboard/coc',
+         link: 'coc',
       },
    ];
 
    return (
-      <div>
+      <div className="">
          <aside
             id="default-sidebar"
-            className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+            className="fixed   left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
             aria-label="Sidebar"
          >
             <div className="h-full px-3 py-4 overflow-y-auto bg-gradient-to-b from-[#171821] to-[#0f1015]">
