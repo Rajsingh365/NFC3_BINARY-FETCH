@@ -6,6 +6,7 @@ export const HomeLayout = () => {
   return (
     <>
       <Navbar />
+      
       <div className="page-container px-[5rem]">
         <Outlet />
       </div>
