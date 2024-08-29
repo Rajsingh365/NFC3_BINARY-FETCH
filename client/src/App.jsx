@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard/Dashboard";
 
+import MatchMaking from './pages/MatchMaking'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />
+      },
+      // {
+      //   index: true,
+      //   element: <Landing />,
+      // },
+      {
+        path:'/matchmaking',
+        element:<MatchMaking/>
       },
       {
         path: "/dashboard",
