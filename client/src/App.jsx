@@ -1,12 +1,58 @@
-import React from "react";
-import { TempButtons } from "./pages/Supervisor/TempButtons";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HomeLayout } from "./pages/HomeLayout";
+import { Toaster } from "react-hot-toast";
+import { AuthContextProvider } from "./context/AuthContext";
 
-const App = () => {
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeLayout />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      // {
+      //   path: "/dashboard",
+      //   element: <FindHotels />,
+      // },
+      // {
+      //   path: "/plan",
+      //   element: <TravelForm />,
+      // },
+      // {
+      //   path: "/about",
+      //   element: <AboutUs />,
+      // },
+      // {
+      //   path: "/contact",
+      //   element: <ContactUs />,
+      // },
+      // {
+      //   path: "/signup",
+      //   element: <SignUp />,
+      // },
+      // {
+      //   path: "/login",
+      //   element: <Login />,
+      // },
+      // {
+      //   path: "/profile",
+      //   element: <Profile />,
+      // }
+    ],
+  },
+]);
+
+function App() {
   return (
-    <div className="bg-gray-500">
-     hello world
-    </div>
+    <>
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+      <Toaster />
+    </AuthContextProvider>
+    </>
   );
-};
+}
 
 export default App;
