@@ -3,8 +3,8 @@ import { TempButtons } from "./pages/Supervisor/TempButtons";
 
 const App = () => {
   return (
-    <div>
-      <TempButtons />
+    <div className="bg-gray-500">
+     hello world
     </div>
   );
 };
