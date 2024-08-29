@@ -5,11 +5,9 @@ import Footer  from "../components/Footer";
 export const HomeLayout = () => {
   return (
     <>
-      {/* <Navbar /> */}
-      <div className="page-container px-[5rem]">
+      <Navbar />
         <Outlet />
-      </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

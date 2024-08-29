@@ -5,7 +5,7 @@ import generateToken from "../utils/generateToken.util.js";
 
 export const signUp = async (req, res) => {
   try {
-    const { fullName, username, password, confirmPassword} = req.body;
+    const { fullName, username, password, confirmPassword,description} = req.body;
 
 
     if (password !== confirmPassword) {
@@ -24,6 +24,7 @@ export const signUp = async (req, res) => {
       fullName,
       username,
       password: hashPassword,
+      description
     })
 
     if (newUser) {
@@ -32,6 +33,7 @@ export const signUp = async (req, res) => {
         _id: newUser._id,
         fullName: newUser.fullName,
         username: newUser.username,
+        description,
         token
       });
     } else {

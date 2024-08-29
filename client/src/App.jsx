@@ -4,6 +4,9 @@ import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login"
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +20,19 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />
-      }
-
-      // {
-      //   path: "/dashboard",
-      //   element: <FindHotels />,
-      // },
+      },
+      {
+        path: "/signup",
+        element: <Signup />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
       // {
       //   path: "/plan",
       //   element: <TravelForm />,

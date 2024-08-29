@@ -306,7 +306,7 @@ function Profile() {
         </div>
       </div>
 
-      <div className="flex bg-[#EFEFEF] w-full h-12 items-center justify-evenly rounded-xl shadow-md mt-6">
+      <div className="flex bg-[#EFEFEF] h-12 items-center justify-evenly rounded-xl shadow-md mt-6 mx-5">
         <p
           className={`font-semibold tracking-wide cursor-pointer px-6 py-1 rounded-lg ${
             selectedSection === "Game Preference & Skills" ? "bg-[#FFFFFF]" : ""
