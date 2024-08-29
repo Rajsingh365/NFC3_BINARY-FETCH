@@ -4,7 +4,8 @@ import DashboardSidebar from './DashboardSidebar'
 const Dashboard = () => {
   return (
     <div className="">
-      <DashboardSidebar/>
+      {/* <DashboardSidebar/> */}
+      <h1>ello</h1>
     </div>
   )
 }
