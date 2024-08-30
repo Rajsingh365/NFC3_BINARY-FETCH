@@ -9,6 +9,7 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard/Dashboard";
 
 import MatchMaking from './pages/MatchMaking'
+import Session from "./pages/Session";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,10 +51,10 @@ const router = createBrowserRouter([
       //   path: "/contact",
       //   element: <ContactUs />,
       // },
-      // {
-      //   path: "/signup",
-      //   element: <SignUp />,
-      // },
+      {
+        path: "/game-sessions",
+        element: <Session />,
+      },
       // {
       //   path: "/login",
       //   element: <Login />,

@@ -18,12 +18,14 @@ const userSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
-    additionalinfo: {
-      type: Object,
-      default: {}
-    }
+    additionalinfo: [
+      {
+        type: Object,
+        default: {},
+      },
+    ],
   },
   { timestamps: true }
 );
