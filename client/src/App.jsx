@@ -12,7 +12,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import CommunityChat from "./pages/CommunityChat.jsx";
 import MatchMaking from './pages/MatchMaking'
 import Tournament from './pages/Tournament'
-
+import Session from './pages/Session'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,10 +30,14 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-      // {
-      //   index: true,
-      //   element: <Landing />,
-      // },
+      {
+        path: "/game-sessions",
+        element: (
+          <ProtectedRoute>
+            <Session />
+          </ProtectedRoute>
+        ),
+      },
       {
         path:'/matchmaking',
         element:(

@@ -5,11 +5,10 @@ import { app,server } from './socket/socket.js';
 import connectDb from "./db/db_connect.js";
 import gamesRoutes from "./routes/games.route.js";
 import authRoutes from "./routes/auth.route.js"
-import uploadRoutes from "./routes/upload.route.js"
+import sessionRoutes from "./routes/session.route.js"
+import uploadRoutes from "./routes/upload.route.js";
 import userRoutes from "./routes/user.route.js";
 import messageRoutes from "./routes/message.route.js";
-
-
 import messageBotRoutes from "./routes/messagesBot.route.js";
 
 const PORT = process.env.PORT || 3000;
@@ -27,6 +26,7 @@ app.use("/api/users",userRoutes);
 app.use("/api/messages",messageRoutes);
 app.use("/api/games",gamesRoutes);
 app.use("/api/message", messageBotRoutes);
+app.use("/api/sessions",sessionRoutes)
 
 app.get("/",(req,res)=>{
   res.json({message: "Hello world"});
