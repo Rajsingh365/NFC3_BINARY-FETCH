@@ -11,6 +11,7 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CommunityChat from "./pages/CommunityChat.jsx";
 import MatchMaking from './pages/MatchMaking'
+import Tournament from './pages/Tournament'
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
       // },
       {
         path:'/matchmaking',
-        element:<MatchMaking/>
+        element:(
+          <ProtectedRoute>
+            <MatchMaking/>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/profile",
@@ -45,14 +50,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      // {
-      //   index: true,
-      //   element: <Landing />,
-      // },
-      {
-        path:'/matchmaking',
-        element:<MatchMaking/>
-      },
+
       {
         path: "/dashboard",
         element: (
@@ -69,26 +67,15 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      // {
-      //   path: "/about",
-      //   element: <AboutUs />,
-      // },
-      // {
-      //   path: "/contact",
-      //   element: <ContactUs />,
-      // },
-      // {
-      //   path: "/signup",
-      //   element: <SignUp />,
-      // },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // },
-      // {
-      //   path: "/profile",
-      //   element: <Profile />,
-      // }
+      {
+        path: "/upcoming-tournament",
+        element: (
+          <ProtectedRoute>
+            <Tournament />
+          </ProtectedRoute>
+        ),
+      }
+
     ],
   },
 ]);

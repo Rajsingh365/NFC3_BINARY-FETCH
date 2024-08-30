@@ -34,7 +34,7 @@ function Search() {
         type="text" 
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="grow w-60" 
+        className="grow w-60 border-none focus:ring-0" 
         placeholder="Search" />
         <button type='submit'>
           <IoSearchSharp className='w-6 h-6 outline-none cursor-pointer' />

@@ -30,6 +30,11 @@ const NavBar = () => {
             Community Chat
           </NavLink>
         </li>
+        <li className="border-2 border-transparent m-2 p-2 cursor-pointer">
+          <NavLink to="/upcoming-tournament">
+            Upcoming-Tournament
+          </NavLink>
+        </li>
       </ul>
     </div>
   );
