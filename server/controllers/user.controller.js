@@ -52,5 +52,22 @@ export const addGameInfo = async (req, res) => {
 };
 
 
-
+export const getMatchMaking = async (req, res) => {
+  try {
+    const loggedInUserId = req.user._id;
+    // console.log('loggedInUserId',loggedInUserId);
+    const user = await User.findById(loggedInUserId);
+    const gameInfo = user.gameInfo;
+    const gameNames = gameInfo.map((game) => game.gameName);
+    const users = await User.find({
+      _id: { $ne: loggedInUserId },
+      "gameInfo.gameName": { $in: gameNames },
+    }).select("-password");
+    // console.log('users',users);
+    res.json(users);
+  } catch (error) {
+    console.log("Error in getMatchMaking:", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+}; 
 

@@ -6,6 +6,7 @@ import pubg from "./../assets/gamesLogoImg/pubg.png";
 import FFCardList from "./cards/FFCardList";
 import PUBGCardList from "./cards/PUBGCardListl";
 import COCCardList from "./cards/COCCardList";
+import ALLCardList from "./cards/ALLCardList";
 
 const MatchMakingSideBar = () => {
   const games = ["FREEFIRE", "PUBG", "COC"];
@@ -28,7 +29,7 @@ const MatchMakingSideBar = () => {
               onClick={() => handleItemClick("Users")}
             >
               <span className="flex-1 ms-3 whitespace-nowrap text-xl">
-                Games
+                Find Here 
               </span>
             </div>
           </div>
@@ -106,7 +107,7 @@ const MatchMakingSideBar = () => {
         ) : currentItem == "coc" ? (
           <COCCardList />
         ) : (
-          <FFCardList />
+          <ALLCardList />
         )}
       </div>
     </div>

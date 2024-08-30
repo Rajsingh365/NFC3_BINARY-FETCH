@@ -25,7 +25,6 @@ app.use("/api/auth",authRoutes);
 app.use("/api/uploads",uploadRoutes);
 app.use("/api/users",userRoutes);
 app.use("/api/messages",messageRoutes);
-
 app.use("/api/games",gamesRoutes);
 app.use("/api/message", messageBotRoutes);
 
