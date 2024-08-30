@@ -4,14 +4,15 @@ import { TbStarFilled } from "react-icons/tb";
 import { motion } from "framer-motion";
 import image from "./../../assets/gamesLogoImg/image.png";
 import { IoPersonAddSharp } from "react-icons/io5";
+import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
+import {useState }from "react"
 
 
 
 const ALLCard = ({ user }) => {
-  
-  const handleRequest = (id) => {
-    console.log('id',id);
-  }
+
+  const [request ,setRequest] = useState(false);
+
 
   const numStars = Math.floor(Math.random() * 5) + 1;
   return (
@@ -30,7 +31,11 @@ const ALLCard = ({ user }) => {
             <span className="text-[0.8rem]">~{user.username}</span>
           </p>
         </div>
-        <IoPersonAddSharp color="lightGreen" className="justify-self-end" onClick={()=>handleRequest(user._id)}/>
+        {
+          !request?
+          <IoPersonAddSharp color="lightGreen" className="justify-self-end" onClick={()=>setRequest(true)}/>:
+          <IoCheckmarkDoneCircleSharp color="lightGreen" className="justify-self-end" />
+        }
       </div>
 
       <hr className="text-cyan-100 w-[90%] m-auto my-2" />

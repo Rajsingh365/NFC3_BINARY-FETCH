@@ -40,6 +40,21 @@ const userSchema = new mongoose.Schema(
         gameExpertise: { type: String, default: 0 },
       },
     ],
+    friends: [
+      {
+        userId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          default: [],
+        },
+      },
+    ],
+    friendRequests: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   { timestamps: true }
 );
