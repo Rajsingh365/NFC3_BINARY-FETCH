@@ -13,6 +13,7 @@ import CommunityChat from "./pages/CommunityChat.jsx";
 import MatchMaking from './pages/MatchMaking'
 import Tournament from './pages/Tournament'
 import Session from './pages/Session'
+import SessionPage from "./components/SessionPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -77,6 +78,13 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <Tournament />
           </ProtectedRoute>
+        ),
+      },{
+        path: "/session-chat",
+        element: (
+          // <ProtectedRoute>
+            <SessionPage />
+          // </ProtectedRoute>
         ),
       }
 
