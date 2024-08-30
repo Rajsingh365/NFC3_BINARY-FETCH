@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const SessionCards = ({ session }) => {
   console.log(session.sessionMembers);
@@ -16,9 +17,9 @@ const SessionCards = ({ session }) => {
         <p className="name flex flex-col text-[1.5rem] font-bold text-cyan-400 tracking-wide">
           {session.sessionName}
         </p>
-        <button className="border-2 p-2 rounded-lg bg-cyan-600 text-white hover:bg-cyan-500 transition-all duration-300">
+        <Link to={'/session-chat'} className="border-2 p-2 rounded-lg bg-cyan-600 text-white hover:bg-cyan-500 transition-all duration-300">
           Join
-        </button>
+        </Link>
       </div>
 
       <hr className="text-cyan-100 w-[90%] m-auto my-2" />

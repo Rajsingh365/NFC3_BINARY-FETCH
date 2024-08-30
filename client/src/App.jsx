@@ -82,9 +82,9 @@ const router = createBrowserRouter([
       },{
         path: "/session-chat",
         element: (
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <SessionPage />
-          // </ProtectedRoute>
+           </ProtectedRoute>
         ),
       }
 
