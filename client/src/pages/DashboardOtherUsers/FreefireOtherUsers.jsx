@@ -28,7 +28,7 @@ const Freefire = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/games/ff/${playerId}`);
+        const res = await axios.get(`https://gamesquadron-backend.onrender.com/api/games/ff/${playerId}`);
         const data = res.data;
         // console.log('data', data);  
         setData(data);

@@ -40,7 +40,7 @@ function GamePreferenceSkills() {
 
     try {
       // Send the new game data to the backend
-      const res = await fetch("http://localhost:5000/api/users/game-info", {
+      const res = await fetch("https://gamesquadron-backend.onrender.com/api/users/game-info", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
