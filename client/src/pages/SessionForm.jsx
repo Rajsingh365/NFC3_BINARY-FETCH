@@ -36,7 +36,7 @@ const SessionForm = ({ form, setForm }) => {
 
     try {
       // Send a POST request to your backend
-      await axios.post("http://localhost:5000/api/sessions", sessionData);
+      await axios.post("https://gamesquadron-backend.onrender.com/api/sessions", sessionData);
       // Handle successful form submission
       alert("Session created successfully!");
       setForm(false); // Close the form

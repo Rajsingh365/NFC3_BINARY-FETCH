@@ -9,7 +9,7 @@ function Session() {
   const [sessions,setSesions] = useState([])
   useEffect(()=>{
     try {
-      axios.get('http://localhost:5000/api/sessions').then((res)=>{
+      axios.get('https://gamesquadron-backend.onrender.com/api/sessions').then((res)=>{
         
         console.log(res.data)
         setSesions(res.data)
