@@ -12,7 +12,7 @@ function GamePreferenceSkills() {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/users/game-info", {
+        const res = await fetch("https://gamesquadron-backend.onrender.com/api/users/game-info", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${authToken}`,

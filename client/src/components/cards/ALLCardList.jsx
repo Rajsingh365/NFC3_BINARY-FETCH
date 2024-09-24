@@ -8,7 +8,7 @@ function ALLCardList() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getMatchMaking = async () => {
-      const res = await fetch("http://localhost:5000/api/users/match-making", {
+      const res = await fetch("https://gamesquadron-backend.onrender.com/api/users/match-making", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

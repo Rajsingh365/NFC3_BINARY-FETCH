@@ -37,8 +37,8 @@ function Profile() {
     try {
       const url =
         type === "cover"
-          ? "http://localhost:5000/api/uploads/upload-cover"
-          : "http://localhost:5000/api/uploads/upload-profile-pic";
+          ? "https://gamesquadron-backend.onrender.com/api/uploads/upload-cover"
+          : "https://gamesquadron-backend.onrender.com/api/uploads/upload-profile-pic";
 
       const response = await fetch(url, {
         method: "POST",

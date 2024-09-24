@@ -5,7 +5,7 @@ function COCCardList() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     try {
-      axios.get("http://localhost:5000/api/games/coc").then((res) => {
+      axios.get("https://gamesquadron-backend.onrender.com/api/games/coc").then((res) => {
         console.log(res.data[0].players);
         setUsers(res.data[0].players);
       });
