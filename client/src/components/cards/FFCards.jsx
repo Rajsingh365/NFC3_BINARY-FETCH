@@ -6,6 +6,7 @@ import image from "./../../assets/gamesLogoImg/image.png";
 import { IoPersonAddSharp } from "react-icons/io5";
 
 const FFCards = ({ user }) => {
+  console.log(user)
   return (
     <motion.li
       initial={{ scale: 0.8, opacity: 0 }}

@@ -14,6 +14,7 @@ import MatchMaking from './pages/MatchMaking'
 import Tournament from './pages/Tournament'
 import Session from './pages/Session'
 import SessionPage from "./components/SessionPage.jsx";
+import DashboardOtherUsers from "./pages/DashboardOtherUsers/DashboardOtherUsers";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -86,8 +87,15 @@ const router = createBrowserRouter([
             <SessionPage />
            </ProtectedRoute>
         ),
-      }
-
+      },
+      {
+        path: "/dashboard/other-users",
+        element: (
+          <ProtectedRoute>
+            <DashboardOtherUsers />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);

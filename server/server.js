@@ -10,6 +10,7 @@ import uploadRoutes from "./routes/upload.route.js";
 import userRoutes from "./routes/user.route.js";
 import messageRoutes from "./routes/message.route.js";
 import messageBotRoutes from "./routes/messagesBot.route.js";
+import mlRoutes from "./routes/ml.route.js";
 
 const PORT = process.env.PORT || 3000;
  
@@ -27,7 +28,7 @@ app.use("/api/messages",messageRoutes);
 app.use("/api/games",gamesRoutes);
 app.use("/api/message", messageBotRoutes);
 app.use("/api/sessions",sessionRoutes)
-
+app.use("/api/ml", mlRoutes);
 app.get("/",(req,res)=>{
   res.json({message: "Hello world"});
 })

@@ -8,7 +8,6 @@ function ALLCardList() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getMatchMaking = async () => {
-      // const data=await axios.get('http://localhost:5000/api/users/match-making')
       const res = await fetch("http://localhost:5000/api/users/match-making", {
         method: "GET",
         headers: {
@@ -17,7 +16,6 @@ function ALLCardList() {
         },
       });
       const data = await res.json();
-      console.log('data',data); 
       setUsers(data);
     };
 

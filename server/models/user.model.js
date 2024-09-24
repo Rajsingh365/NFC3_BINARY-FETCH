@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    likes: {
+      type: Number,
+      default: 0,
+    },
     gameInfo: [
       {
         gameName: { type: String, required: true },
