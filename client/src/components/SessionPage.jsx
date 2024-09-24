@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://gamesquadron-backend.onrender.com/');
 
 function SessionPage() {
   const [username, setUsername] = useState('');
