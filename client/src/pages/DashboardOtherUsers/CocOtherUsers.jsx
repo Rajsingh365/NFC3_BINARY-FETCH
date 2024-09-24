@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import CocInfo from './CocInfo.jsx';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import { set } from 'mongoose';
 const Coc = () => {
   const playerId = "1001";
   const [data, setData] = useState({playerName: '', trophyHistory: []});

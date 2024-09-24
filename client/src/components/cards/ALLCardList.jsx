@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { get } from "mongoose";
 import { useAuthContext } from "../../context/AuthContext";
 import ALLCard from "./ALLCard";
 function ALLCardList() {
