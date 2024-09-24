@@ -33,11 +33,30 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    likes: {
+      type: Number,
+      default: 0,
+    },
     gameInfo: [
       {
         gameName: { type: String, required: true },
         gameId: { type: String, required: true },
         gameExpertise: { type: String, default: 0 },
+      },
+    ],
+    friends: [
+      {
+        userId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          default: [],
+        },
+      },
+    ],
+    friendRequests: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
       },
     ],
   },

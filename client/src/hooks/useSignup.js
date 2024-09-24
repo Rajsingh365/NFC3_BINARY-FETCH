@@ -15,7 +15,7 @@ function useSignup() {
 
     try {
       console.log(gender);
-      const res = await fetch("http://localhost:5000/api/auth/signup", {
+      const res = await fetch("https://gamesquadron-backend.onrender.com/api/auth/signup", {
         method: "Post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fullName, username, password, confirmPassword, description,gender }),

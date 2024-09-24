@@ -9,7 +9,7 @@ const useGetBotMessages = () => {
 			setLoading(true);
       console.log('senderMsg',senderMsg);
 			try {
-        const res = await fetch("http://localhost:5000/api/message/bot-reply", {
+        const res = await fetch("https://gamesquadron-backend.onrender.com/api/message/bot-reply", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

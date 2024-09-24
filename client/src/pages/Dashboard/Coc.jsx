@@ -9,7 +9,7 @@ const Coc = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/games/coc/${playerId}`);
+        const res = await axios.get(`https://gamesquadron-backend.onrender.com/api/games/coc/${playerId}`);
         const data = res.data;
         // console.log('data', data);  
         setData(data);

@@ -11,7 +11,10 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CommunityChat from "./pages/CommunityChat.jsx";
 import MatchMaking from './pages/MatchMaking'
-
+import Tournament from './pages/Tournament'
+import Session from './pages/Session'
+import SessionPage from "./components/SessionPage.jsx";
+import DashboardOtherUsers from "./pages/DashboardOtherUsers/DashboardOtherUsers";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,13 +32,21 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-      // {
-      //   index: true,
-      //   element: <Landing />,
-      // },
+      {
+        path: "/game-sessions",
+        element: (
+          <ProtectedRoute>
+            <Session />
+          </ProtectedRoute>
+        ),
+      },
       {
         path:'/matchmaking',
-        element:<MatchMaking/>
+        element:(
+          <ProtectedRoute>
+            <MatchMaking/>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/profile",
@@ -45,14 +56,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      // {
-      //   index: true,
-      //   element: <Landing />,
-      // },
-      {
-        path:'/matchmaking',
-        element:<MatchMaking/>
-      },
+
       {
         path: "/dashboard",
         element: (
@@ -69,26 +73,29 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      // {
-      //   path: "/about",
-      //   element: <AboutUs />,
-      // },
-      // {
-      //   path: "/contact",
-      //   element: <ContactUs />,
-      // },
-      // {
-      //   path: "/signup",
-      //   element: <SignUp />,
-      // },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // },
-      // {
-      //   path: "/profile",
-      //   element: <Profile />,
-      // }
+      {
+        path: "/upcoming-tournament",
+        element: (
+          <ProtectedRoute>
+            <Tournament />
+          </ProtectedRoute>
+        ),
+      },{
+        path: "/session-chat",
+        element: (
+          <ProtectedRoute>
+            <SessionPage />
+           </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/dashboard/other-users",
+        element: (
+          <ProtectedRoute>
+            <DashboardOtherUsers />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);
