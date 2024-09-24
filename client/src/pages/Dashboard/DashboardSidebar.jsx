@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Freefire from "./Freefire";
 import Coc from "./Coc";
-// import Pubg from "./pubg";
+import Pubg from "./pubg";
 
 const DashboardSidebar = () => {
   const [currentItem, setCurrentItem] = useState("Freefire");
